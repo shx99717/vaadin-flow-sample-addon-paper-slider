@@ -23,7 +23,11 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 // files to './src/main/resources/META-INF/resources/frontend' and insert an
 // annotation @JsModule("./my-module.js") here. 
 @JsModule("./my-module.js")
-
+/**
+ * @CssImport(value = "styles/module/cool-paper-slider.css", themeFor = "paper-slider")
+ * The CssImport here does not work for paper-slider, because the paper-slider is not written
+ * in a way support Vaadin Flow's proprietary solution ThemableMixin.
+*/
 //Annotation for defining an NPM package dependency on a Componentclass which includes one or more JS modules. The JS Modules can be definedusing JsModule annotation on the same Component. For addingmultiple NPM packages files for a single component, you can use thisannotation multiple times. 
 //Declared NPM packages will be bundled by flow-maven-plugin in a package.jsonfile, making sure that only one dependency is created.
 @NpmPackage(value = "@polymer/paper-slider", version = "3.0.1")
