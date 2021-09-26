@@ -24,7 +24,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 // annotation @JsModule("./my-module.js") here. 
 @JsModule("./my-module.js")
 /**
- * @CssImport(value = "styles/module/cool-paper-slider.css", themeFor = "paper-slider")
+ * @CssImport(value = "./cool-paper-slider.css", themeFor = "paper-slider")
  * The CssImport here does not work for paper-slider, because the paper-slider is not written
  * in a way support Vaadin Flow's proprietary solution ThemableMixin.
 */
