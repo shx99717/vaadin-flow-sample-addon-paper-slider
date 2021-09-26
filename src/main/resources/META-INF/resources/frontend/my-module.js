@@ -1,0 +1,1 @@
+alert("The file my-module.js is loaded");
