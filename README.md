@@ -2,6 +2,15 @@
 
 Vaadin 14 Java integration of @polymer/paper-slider
 
+## How to quickly start development of a Vaadin Flow Add-On
+While you can start from scratch and do it all manually, the easiest way is to use the [Vaadin Add-on Starter](https://vaadin.com/start/lts/component). This gives you:
+- A project with all the necessary dependencies.
+- An npm import for the selected component.
+- A stub component Java class for your Web Component integration.
+- A Maven profile that handles everything necessary to deploy the component to Vaadin Directory.
+
+
+
 ## Development instructions
 
 JavaScript modules can either be published as an NPM package or be kept as local 
