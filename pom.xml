@@ -292,6 +292,7 @@
             </build>
         </profile>
 
+		<!-- Run integration test -->
         <profile>
             <id>it</id>
             <build>

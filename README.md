@@ -15,7 +15,9 @@ using the `@NpmPackage` annotation in addition to using `@JsModule` annotation.
 
 Starting the test/demo server:
 1. Run `mvn jetty:run`.
-2. Open http://localhost:8080 in the browser.
+2. Open http://localhost:8080 in the browser.  
+
+(Run the demo in production mode `mvn jetty:run -Pproduction`)
 
 ## Publishing to Vaadin Directory
 
@@ -30,3 +32,24 @@ The package is created as `target/paper-slider-1.0.0.zip`
 Upload the resulting zip from target folder to Vaadin Directory from the website [Vaadin Directory](https://vaadin.com/directory)
 
 For more information or to upload the package, visit https://vaadin.com/directory/my-components?uploadNewComponent
+
+
+
+## Run Integration Test
+```
+mvn verify -Pit
+```
+
+The goal `verify` will both execute `unit-test`(by surefire plugin) and `integration-test`(by failsafe plugin)
+The goal `test` will only execute `unit-test`(by surefire plugin)
+
+The order of basic phases is:
+- Validate
+- Compile
+- Test
+- Package
+- Verify
+- Install
+- Deploy
+
+
