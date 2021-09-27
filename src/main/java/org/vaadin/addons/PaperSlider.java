@@ -1,8 +1,9 @@
 package org.vaadin.addons;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.PropertyDescriptor;
+import com.vaadin.flow.component.PropertyDescriptors;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
@@ -32,8 +33,133 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 //Declared NPM packages will be bundled by flow-maven-plugin in a package.jsonfile, making sure that only one dependency is created.
 @NpmPackage(value = "@polymer/paper-slider", version = "3.0.1")
 public class PaperSlider extends Component {
-
+	
+	// The old-fashion way
+	// private static final String PROPERTY_PIN = "pin"; // boolean
+	// The new fashion way
+	private static final PropertyDescriptor<Boolean, Boolean> pinProperty = PropertyDescriptors.propertyWithDefault("pin", false);
+	
+//	private static final String PROPERTY_VALUE = "value"; // int
+	private static final PropertyDescriptor<Integer, Integer> valueProperty = PropertyDescriptors.propertyWithDefault("value", 0);
+	
+//	private static final String PROPERTY_MAX = "max"; // int
+	private static final PropertyDescriptor<String, String> maxAttribute = PropertyDescriptors.attributeWithDefault("max", "100");
+	
+//	private static final String PROPERTY_EDITABLE = "editable"; // boolean
+	private static final PropertyDescriptor<Boolean, Boolean> editableProperty = PropertyDescriptors.propertyWithDefault("editable", false);
+	
+//	private static final String PROPERTY_MAX_MARKERS = "max-markers"; // int
+	private static final PropertyDescriptor<Integer, Integer> maxMarkersProperty = PropertyDescriptors.propertyWithDefault("max-markers", 0);
+	
+//	private static final String PROPERTY_STEP = "step"; // int
+	private static final PropertyDescriptor<Integer, Integer> stepProperty = PropertyDescriptors.propertyWithDefault("step", 0);
+	
+//	private static final String PROPERTY_SNAPS = "snaps"; // boolean
+	private static final PropertyDescriptor<Boolean, Boolean> snapsProperty = PropertyDescriptors.propertyWithDefault("snaps", false);
+	
+//	private static final String PROPERTY_SECONDARY_PROGRESS = "secondary-progress"; // int
+	private static final PropertyDescriptor<String, String> secondaryProgressAttribute = PropertyDescriptors.attributeWithDefault("secondary-progress", "0");
+	
+//	private static final String PROPERTY_DISABLED = "disabled"; // boolean
+	private static final PropertyDescriptor<Boolean, Boolean> disabledProperty = PropertyDescriptors.propertyWithDefault("disabled", false);
+	
+	// check https://www.webcomponents.org/element/@polymer/paper-slider
+	// the demo there introduces properties/attributes of the paper-slider element
 	public PaperSlider() {
 	}
 
+	public void setPin(boolean pin) {
+		// The old-fashion way
+	    // getElement().setProperty(PROPERTY_PIN, pin);
+		
+		// The new fashion way
+		set(pinProperty, pin);
+	}
+	public boolean isPin() {
+		// The old-fashion way
+	    // return getElement().getProperty(PROPERTY_PIN, false);
+		
+		// The new fashion way
+		return get(pinProperty);
+	}
+	
+	public void setValue(int value) {
+//		getElement().setAttribute(PROPERTY_VALUE, Integer.toString(value));
+		set(valueProperty, value);
+	}
+	
+	public int getValue() {
+//		return Integer.parseInt(getElement().getProperty(PROPERTY_VALUE));
+		return get(valueProperty);
+	}
+	
+	public void setMax(int max) {
+//		getElement().setAttribute(PROPERTY_MAX, Integer.toString(max));
+		set(maxAttribute, Integer.toString(max));
+	}
+	
+	public int getMax() {
+//		return Integer.parseInt(getElement().getProperty(PROPERTY_MAX));
+		return Integer.parseInt(get(maxAttribute));
+	}
+	
+	public void setEditable(boolean editable) {
+//	    getElement().setAttribute(PROPERTY_EDITABLE, editable);
+		set(editableProperty, editable);
+	}
+	public boolean isEditable() {
+//	    return getElement().getProperty(PROPERTY_EDITABLE, false);
+		return get(editableProperty);
+	}
+	
+	public void setMaxMarkers(int maxMarkers) {
+//		getElement().setAttribute(PROPERTY_MAX_MARKERS, Integer.toString(maxMarkers));
+		set(maxMarkersProperty, maxMarkers);
+	}
+	
+	public int getMaxMarkers() {
+//		return Integer.parseInt(getElement().getProperty(PROPERTY_MAX_MARKERS));
+		return get(maxMarkersProperty);
+	}
+	
+	public void setStep(int step) {
+//		getElement().setAttribute(PROPERTY_STEP, Integer.toString(step));
+		set(stepProperty, step);
+	}
+	
+	public int getStep() {
+//		return Integer.parseInt(getElement().getProperty(PROPERTY_STEP));
+		return get(stepProperty);
+	}
+	
+	
+	public void setSnaps(boolean snaps) {
+//	    getElement().setAttribute(PROPERTY_SNAPS, snaps);
+		set(snapsProperty, snaps);
+	}
+	
+	public boolean isSnaps() {
+//	    return getElement().getProperty(PROPERTY_SNAPS, false);
+		return get(snapsProperty);
+	}
+	
+	public void setSecondaryProgress(int secondaryProgress) {
+//		getElement().setAttribute(PROPERTY_SECONDARY_PROGRESS, Integer.toString(secondaryProgress));
+		set(secondaryProgressAttribute, Integer.toString(secondaryProgress));
+	}
+	
+	public int getSecondaryProgress() {
+//		return Integer.parseInt(getElement().getProperty(PROPERTY_SECONDARY_PROGRESS));
+		return Integer.parseInt(get(secondaryProgressAttribute));
+	}
+	
+	public void setDisabled(boolean disabled) {
+//	    getElement().setAttribute(PROPERTY_DISABLED, disabled);
+		set(disabledProperty, disabled);
+	}
+	
+	public boolean isDisabled() {
+//	    return getElement().getProperty(PROPERTY_DISABLED, false);
+	    return get(disabledProperty);
+	}
 }
