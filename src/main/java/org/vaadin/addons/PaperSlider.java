@@ -9,6 +9,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 //This defines the name of the HTML element to be presented on the page
+//This must be matched with the predefined name from the web-component
 @Tag("paper-slider")
 
 //Annotation for defining JavaScript Module dependencies on a Componentclass. For adding multiple JavaScript Module files for a single component,you can use this annotation multiple times. 
