@@ -2,9 +2,10 @@ package org.vaadin.addons.demo;
 
 import org.vaadin.addons.PaperSlider;
 
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
@@ -52,5 +53,19 @@ public class Demo extends VerticalLayout {
         paperSlider5.setValue(3);
         paperSlider5.setEditable(true);
         add(label5, paperSlider5); 
+        
+        
+        Label label6 = new Label("Map client side click event to serve side");
+        PaperSlider paperSlider6 = new PaperSlider();
+        paperSlider6.addClickListener(e -> {
+        	Notification.show("Clicked at " + e.getX() + "," + e.getY(), 1000, Position.BOTTOM_START);
+        });
+        add(label6, paperSlider6);
+        Button incrementJSButton = new Button("Increment using JS", e -> {
+        	paperSlider6.increment();
+        });
+        add(incrementJSButton);
+        
+        
     }
 }
