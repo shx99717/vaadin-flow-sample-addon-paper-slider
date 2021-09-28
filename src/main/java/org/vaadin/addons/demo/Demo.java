@@ -5,18 +5,19 @@ import org.vaadin.addons.PaperSlider;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 /**
  * Visit at http://localhost:8080/demo
  */
 @Route("demo")
-@CssImport("./demo.css")
-public class Demo extends Div {
+public class Demo extends VerticalLayout {
 
     public Demo() {
-    	Label label1 = new Label("Plain");
+    	Label label1 = new Label("Plain with global scope css");
         PaperSlider paperSlider1 = new PaperSlider();
+        paperSlider1.getElement().getClassList().add("special-border");
         add(label1, paperSlider1);
         
         Label label2 = new Label("with secondary progress");

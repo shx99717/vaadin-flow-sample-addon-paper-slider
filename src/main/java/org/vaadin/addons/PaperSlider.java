@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.PropertyDescriptor;
 import com.vaadin.flow.component.PropertyDescriptors;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
@@ -32,6 +33,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 //Annotation for defining an NPM package dependency on a Componentclass which includes one or more JS modules. The JS Modules can be definedusing JsModule annotation on the same Component. For addingmultiple NPM packages files for a single component, you can use thisannotation multiple times. 
 //Declared NPM packages will be bundled by flow-maven-plugin in a package.jsonfile, making sure that only one dependency is created.
 @NpmPackage(value = "@polymer/paper-slider", version = "3.0.1")
+@CssImport("./my-module.css") 
 public class PaperSlider extends Component {
 	
 	// The old-fashion way

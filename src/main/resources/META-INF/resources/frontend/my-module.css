@@ -1,3 +1,7 @@
+paper-slider.special-border {
+	border: 2px dotted #ccc;	
+}
+
 paper-slider.red { 
 	--paper-slider-knob-color: var(--paper-red-500); 
 	--paper-slider-active-color: var(--paper-red-500);
@@ -12,3 +16,4 @@ paper-slider.blue {
 	--paper-slider-knob-color: var(--paper-light-blue-500); 
 	--paper-slider-active-color: var(--paper-light-blue-500);
 }
+
